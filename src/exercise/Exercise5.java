@@ -1,28 +1,30 @@
 package exercise;
 
+import java.util.Scanner;
+
 public class Exercise5 {
-    public static void main(String[] args) {
-
-        System.out.println(String.format("%60s", "Student List"));
-        printSeperator();
-        printRow("ID", "Name", "Age", "Phone", "Mail");
-        printRow("1", "Minh Khang", "22", "0903581777", "khangnguyen@gmail.com");
-        printRow("2", "Minh Khang", "22", "0903581777", "khangnguyen@gmail.com");
-        printRow("3", "Thi Minh Khang", "22", "0903581777", "khangnguyen@gmail.com");
-        printRow("4", "Tran Minh Khang", "22", "0903581777", "khangnguyen@gmail.com");
-        printRow("5", "Nguyen Thi Minh Khang", "22", "0903581777", "khangnguyen@gmail.com");
+//    Trong phần này, chúng ta sẽ phát triển một ứng dụng cho phép người dùng
+//    nhập vào 1 khoảng số tự nhiên và yêu cầu tính tổng các số chẵn nằm trong khoảng đó.
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter start number: ");
+    int start = sc.nextInt();
+    System.out.println("Enter end number: ");
+    int end = sc.nextInt();
+    while (start > end) {
+        System.out.println("Invalid input. Please enter again ");
+        System.out.println("Enter start number: ");
+        start = sc.nextInt();
+        System.out.println("Enter end number: ");
+        end = sc.nextInt();
     }
 
-    public static void printSeperator() {
-        System.out.println("------------------------------------------------------------------------------------------------------------");
+    int result = 0;
+
+    for(int i = start; i<= end; i++) {
+        if (i%2 == 0) result+=i;
     }
 
-    public static void printRow(String id, String name, String age, String phone, String mail) {
-        System.out.println("| " + String.format("%-6s", id) + " | " +
-                String.format("%-30s", name) + " | " +
-                String.format("%-6s", age) + " | " +
-                String.format("%-20s", phone) + " | " +
-                String.format("%-30s", mail) + " |");
-        printSeperator();
-    }
+    System.out.println(result);
+}
 }
